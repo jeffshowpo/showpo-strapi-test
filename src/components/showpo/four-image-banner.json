@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_showpo_four_image_banners",
+  "info": {
+    "displayName": "FourImageBanner",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "showpo.image-block"
+    }
+  }
+}

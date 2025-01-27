@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_showpo_carousels",
+  "info": {
+    "displayName": "Carousel",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "slides": {
+      "type": "component",
+      "repeatable": true,
+      "component": "showpo.carousel-item"
+    }
+  }
+}

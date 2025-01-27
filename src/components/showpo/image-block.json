@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_showpo_image_blocks",
+  "info": {
+    "displayName": "ImageBlock",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
