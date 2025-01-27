@@ -144,13 +144,10 @@ export interface ShowpoTopBannerBlock extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
-    backgroundColor: Schema.Attribute.String;
     hideOnMobile: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     isClickable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
-    text: Schema.Attribute.String;
-    textColor: Schema.Attribute.String;
   };
 }
 

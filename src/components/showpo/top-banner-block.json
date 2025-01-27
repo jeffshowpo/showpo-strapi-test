@@ -7,10 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "text": {
-      "type": "string"
-    },
-    "icon": {
+    "image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -26,12 +23,6 @@
       "default": false
     },
     "link": {
-      "type": "string"
-    },
-    "backgroundColor": {
-      "type": "string"
-    },
-    "textColor": {
       "type": "string"
     },
     "hideOnMobile": {
