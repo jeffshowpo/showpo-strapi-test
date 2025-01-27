@@ -547,7 +547,7 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['showpo.carousel', 'showpo.four-image-banner']
+      ['showpo.top-banner', 'showpo.carousel', 'showpo.four-image-banner']
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

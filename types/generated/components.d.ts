@@ -125,6 +125,35 @@ export interface ShowpoImageBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface ShowpoTopBanner extends Struct.ComponentSchema {
+  collectionName: 'components_showpo_top_banners';
+  info: {
+    displayName: 'Top Banner';
+    icon: 'apps';
+  };
+  attributes: {
+    blocks: Schema.Attribute.Component<'showpo.top-banner-block', true>;
+  };
+}
+
+export interface ShowpoTopBannerBlock extends Struct.ComponentSchema {
+  collectionName: 'components_showpo_top_banner_blocks';
+  info: {
+    description: '';
+    displayName: 'Top Banner Block';
+    icon: 'apps';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String;
+    hideOnMobile: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    isClickable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    link: Schema.Attribute.String;
+    text: Schema.Attribute.String;
+    textColor: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -138,6 +167,8 @@ declare module '@strapi/strapi' {
       'showpo.carousel-item': ShowpoCarouselItem;
       'showpo.four-image-banner': ShowpoFourImageBanner;
       'showpo.image-block': ShowpoImageBlock;
+      'showpo.top-banner': ShowpoTopBanner;
+      'showpo.top-banner-block': ShowpoTopBannerBlock;
     }
   }
 }

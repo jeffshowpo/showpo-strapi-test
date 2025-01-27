@@ -15,6 +15,7 @@
     "content": {
       "type": "dynamiczone",
       "components": [
+        "showpo.top-banner",
         "showpo.carousel",
         "showpo.four-image-banner"
       ]
