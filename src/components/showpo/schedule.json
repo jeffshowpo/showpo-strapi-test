@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_showpo_schedules",
+  "info": {
+    "displayName": "Schedule",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    }
+  }
+}

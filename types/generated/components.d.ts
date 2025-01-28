@@ -76,10 +76,12 @@ export interface SharedSlider extends Struct.ComponentSchema {
 export interface ShowpoCarousel extends Struct.ComponentSchema {
   collectionName: 'components_showpo_carousels';
   info: {
+    description: '';
     displayName: 'Carousel';
     icon: 'play';
   };
   attributes: {
+    schedule: Schema.Attribute.Component<'showpo.schedule', false>;
     slides: Schema.Attribute.Component<'showpo.carousel-item', true>;
   };
 }
@@ -125,6 +127,18 @@ export interface ShowpoImageBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface ShowpoSchedule extends Struct.ComponentSchema {
+  collectionName: 'components_showpo_schedules';
+  info: {
+    displayName: 'Schedule';
+    icon: 'calendar';
+  };
+  attributes: {
+    endDate: Schema.Attribute.DateTime;
+    startDate: Schema.Attribute.DateTime;
+  };
+}
+
 export interface ShowpoTopBanner extends Struct.ComponentSchema {
   collectionName: 'components_showpo_top_banners';
   info: {
@@ -164,6 +178,7 @@ declare module '@strapi/strapi' {
       'showpo.carousel-item': ShowpoCarouselItem;
       'showpo.four-image-banner': ShowpoFourImageBanner;
       'showpo.image-block': ShowpoImageBlock;
+      'showpo.schedule': ShowpoSchedule;
       'showpo.top-banner': ShowpoTopBanner;
       'showpo.top-banner-block': ShowpoTopBannerBlock;
     }
