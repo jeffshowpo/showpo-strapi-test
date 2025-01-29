@@ -17,6 +17,10 @@
       "type": "component",
       "repeatable": false,
       "component": "showpo.schedule"
+    },
+    "title": {
+      "type": "string",
+      "required": false
     }
   }
 }

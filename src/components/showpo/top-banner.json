@@ -2,7 +2,8 @@
   "collectionName": "components_showpo_top_banners",
   "info": {
     "displayName": "Top Banner",
-    "icon": "apps"
+    "icon": "apps",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,6 +11,9 @@
       "type": "component",
       "repeatable": true,
       "component": "showpo.top-banner-block"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

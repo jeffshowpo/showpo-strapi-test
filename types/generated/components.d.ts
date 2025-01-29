@@ -83,6 +83,7 @@ export interface ShowpoCarousel extends Struct.ComponentSchema {
   attributes: {
     schedule: Schema.Attribute.Component<'showpo.schedule', false>;
     slides: Schema.Attribute.Component<'showpo.carousel-item', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -101,29 +102,34 @@ export interface ShowpoCarouselItem extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
 export interface ShowpoFourImageBanner extends Struct.ComponentSchema {
   collectionName: 'components_showpo_four_image_banners';
   info: {
+    description: '';
     displayName: 'FourImageBanner';
     icon: 'dashboard';
   };
   attributes: {
     images: Schema.Attribute.Component<'showpo.image-block', true>;
+    title: Schema.Attribute.String;
   };
 }
 
 export interface ShowpoImageBlock extends Struct.ComponentSchema {
   collectionName: 'components_showpo_image_blocks';
   info: {
+    description: '';
     displayName: 'ImageBlock';
     icon: 'picture';
   };
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -142,11 +148,13 @@ export interface ShowpoSchedule extends Struct.ComponentSchema {
 export interface ShowpoTopBanner extends Struct.ComponentSchema {
   collectionName: 'components_showpo_top_banners';
   info: {
+    description: '';
     displayName: 'Top Banner';
     icon: 'apps';
   };
   attributes: {
     blocks: Schema.Attribute.Component<'showpo.top-banner-block', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -162,6 +170,7 @@ export interface ShowpoTopBannerBlock extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     isClickable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 

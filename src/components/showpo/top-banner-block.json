@@ -28,6 +28,9 @@
     "hideOnMobile": {
       "type": "boolean",
       "default": false
+    },
+    "title": {
+      "type": "string"
     }
   }
 }
