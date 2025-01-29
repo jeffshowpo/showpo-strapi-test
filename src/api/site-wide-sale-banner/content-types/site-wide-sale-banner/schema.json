@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "site_wide_sale_banners",
+  "info": {
+    "singularName": "site-wide-sale-banner",
+    "pluralName": "site-wide-sale-banners",
+    "displayName": "Site Wide Sale Banner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "bannerText": {
+      "type": "blocks",
+      "required": true
+    },
+    "bannerLink": {
+      "type": "string",
+      "required": true
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#F2C8C0"
+    },
+    "schedule": {
+      "type": "component",
+      "repeatable": false,
+      "component": "showpo.schedule"
+    }
+  }
+}

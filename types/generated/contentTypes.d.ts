@@ -567,6 +567,41 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSiteWideSaleBannerSiteWideSaleBanner
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'site_wide_sale_banners';
+  info: {
+    displayName: 'Site Wide Sale Banner';
+    pluralName: 'site-wide-sale-banners';
+    singularName: 'site-wide-sale-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#F2C8C0'>;
+    bannerLink: Schema.Attribute.String & Schema.Attribute.Required;
+    bannerText: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::site-wide-sale-banner.site-wide-sale-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    schedule: Schema.Attribute.Component<'showpo.schedule', false>;
+    textColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#000000'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1082,6 +1117,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::site-wide-sale-banner.site-wide-sale-banner': ApiSiteWideSaleBannerSiteWideSaleBanner;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
