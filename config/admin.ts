@@ -17,11 +17,9 @@ export default ({ env }) => ({
   preview: {
     enabled: true,
     config: {
-      allowedOrigins: [env('CLIENT_URL')], // Usually the frontend application URL
+      allowedOrigins: [env('CLIENT_URL'), 'https://accounts.shopify.com/'], // Usually the frontend application URL
       async handler(uid, { documentId, locale, status }) {
         const document = await strapi.documents(uid).findOne({ documentId });
-
-        console.log(arguments);
 
         const pathname = getPreviewPathname(uid, { locale, document });
 
