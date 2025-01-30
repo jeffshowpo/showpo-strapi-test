@@ -21,7 +21,7 @@ export default ({ env }) => ({
       async handler(uid, { documentId, locale, status }) {
         const document = await strapi.documents(uid).findOne({ documentId });
 
-        const pathname = getPreviewPathname(uid, { locale, document });
+        const pathname = getPreviewPathname(uid, { locale, document, status });
 
         const previewUrl = `${env('CLIENT_URL')}${pathname}`;
 
@@ -34,12 +34,14 @@ export default ({ env }) => ({
 });
 
 // Function to generate preview pathname based on content type and document
-const getPreviewPathname = (uid, { locale, document }): string => {
+const getPreviewPathname = (uid, { locale, document, status }): string => {
   // Handle different content types with their specific URL patterns
   switch (uid) {
     // Handle pages with predefined routes
     case 'api::home-page.home-page':
-      return `/content/strapi-home-page?preview=true`;
+      return status === 'draft'
+        ? `/content/strapi-home-page?preview=true`
+        : `/content/strapi-home-page`;
     default: {
       return null;
     }
