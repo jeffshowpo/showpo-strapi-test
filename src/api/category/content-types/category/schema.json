@@ -4,28 +4,27 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Category",
-    "description": "Organize your content into categories"
+    "displayName": "Category"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
     },
-    "slug": {
-      "type": "uid"
+    "url": {
+      "type": "string",
+      "required": true
     },
-    "articles": {
+    "megamenu_item": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
+      "relation": "oneToOne",
+      "target": "api::megamenu-item.megamenu-item",
       "mappedBy": "category"
-    },
-    "description": {
-      "type": "text"
     }
   }
 }

@@ -133,6 +133,57 @@ export interface ShowpoImageBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface ShowpoMegamenuCalloutItem extends Struct.ComponentSchema {
+  collectionName: 'components_showpo_megamenu_callout_items';
+  info: {
+    description: '';
+    displayName: 'MegamenuCalloutItem';
+    icon: 'priceTag';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ShowpoMegamenuCallouts extends Struct.ComponentSchema {
+  collectionName: 'components_showpo_megamenu_callouts';
+  info: {
+    displayName: 'MegamenuCallouts';
+    icon: 'priceTag';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'showpo.megamenu-callout-item', true>;
+  };
+}
+
+export interface ShowpoMegamenuLinkItem extends Struct.ComponentSchema {
+  collectionName: 'components_showpo_megamenu_link_items';
+  info: {
+    displayName: 'MegamenuLinkItem';
+    icon: 'link';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ShowpoMegamenuLinks extends Struct.ComponentSchema {
+  collectionName: 'components_showpo_megamenu_links';
+  info: {
+    displayName: 'MegamenuLinks';
+    icon: 'link';
+  };
+  attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    items: Schema.Attribute.Component<'showpo.megamenu-link-item', true>;
+  };
+}
+
 export interface ShowpoSchedule extends Struct.ComponentSchema {
   collectionName: 'components_showpo_schedules';
   info: {
@@ -187,6 +238,10 @@ declare module '@strapi/strapi' {
       'showpo.carousel-item': ShowpoCarouselItem;
       'showpo.four-image-banner': ShowpoFourImageBanner;
       'showpo.image-block': ShowpoImageBlock;
+      'showpo.megamenu-callout-item': ShowpoMegamenuCalloutItem;
+      'showpo.megamenu-callouts': ShowpoMegamenuCallouts;
+      'showpo.megamenu-link-item': ShowpoMegamenuLinkItem;
+      'showpo.megamenu-links': ShowpoMegamenuLinks;
       'showpo.schedule': ShowpoSchedule;
       'showpo.top-banner': ShowpoTopBanner;
       'showpo.top-banner-block': ShowpoTopBannerBlock;

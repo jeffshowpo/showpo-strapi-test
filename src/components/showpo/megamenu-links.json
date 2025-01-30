@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_showpo_megamenu_links",
+  "info": {
+    "displayName": "MegamenuLinks",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "showpo.megamenu-link-item"
+    }
+  }
+}

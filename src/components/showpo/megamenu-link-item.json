@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_showpo_megamenu_link_items",
+  "info": {
+    "displayName": "MegamenuLinkItem",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

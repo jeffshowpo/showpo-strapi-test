@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_showpo_megamenu_callout_items",
+  "info": {
+    "displayName": "MegamenuCalloutItem",
+    "icon": "priceTag",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

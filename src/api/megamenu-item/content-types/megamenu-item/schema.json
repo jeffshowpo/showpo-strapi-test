@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "megamenu_items",
+  "info": {
+    "singularName": "megamenu-item",
+    "pluralName": "megamenu-items",
+    "displayName": "MegamenuItem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category",
+      "inversedBy": "megamenu_item"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "showpo.megamenu-links",
+        "showpo.megamenu-callouts"
+      ]
+    }
+  }
+}

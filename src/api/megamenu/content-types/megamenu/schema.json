@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "megamenus",
+  "info": {
+    "singularName": "megamenu",
+    "pluralName": "megamenus",
+    "displayName": "Megamenu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "megamenu_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::megamenu-item.megamenu-item"
+    }
+  }
+}
