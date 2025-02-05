@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shopify_items",
+  "info": {
+    "singularName": "shopify-item",
+    "pluralName": "shopify-items",
+    "displayName": "Shopify Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "products": {
+      "type": "customField",
+      "required": true,
+      "customField": "global::shopify-product-field"
+    }
+  }
+}

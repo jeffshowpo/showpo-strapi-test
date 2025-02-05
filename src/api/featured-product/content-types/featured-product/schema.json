@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "featured_products",
+  "info": {
+    "singularName": "featured-product",
+    "pluralName": "featured-products",
+    "displayName": "Featured Products"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "products": {
+      "type": "customField",
+      "customField": "global::shopify-product-field"
+    }
+  }
+}
