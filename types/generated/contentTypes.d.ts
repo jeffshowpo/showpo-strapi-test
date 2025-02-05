@@ -504,6 +504,37 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFeaturedProductFeaturedProduct
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'featured_products';
+  info: {
+    displayName: 'Featured Products';
+    pluralName: 'featured-products';
+    singularName: 'featured-product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::featured-product.featured-product'
+    > &
+      Schema.Attribute.Private;
+    products: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'global::shopify-product-field'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -628,6 +659,37 @@ export interface ApiMegamenuMegamenu extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::megamenu-item.megamenu-item'
     >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiShopifyItemShopifyItem extends Struct.CollectionTypeSchema {
+  collectionName: 'shopify_items';
+  info: {
+    displayName: 'Shopify Item';
+    pluralName: 'shopify-items';
+    singularName: 'shopify-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::shopify-item.shopify-item'
+    > &
+      Schema.Attribute.Private;
+    products: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<'global::shopify-product-field'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -1184,10 +1246,12 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::featured-product.featured-product': ApiFeaturedProductFeaturedProduct;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::megamenu-item.megamenu-item': ApiMegamenuItemMegamenuItem;
       'api::megamenu.megamenu': ApiMegamenuMegamenu;
+      'api::shopify-item.shopify-item': ApiShopifyItemShopifyItem;
       'api::site-wide-sale-banner.site-wide-sale-banner': ApiSiteWideSaleBannerSiteWideSaleBanner;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
