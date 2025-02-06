@@ -35,5 +35,8 @@
   },
   "strapi": {
     "uuid": "f21faac8-7ee2-4ee6-a20a-560da5ac0edd"
-  }
+  },
+  "workspaces": [
+    "./src/plugins/shopify-fields-plugin"
+  ]
 }
