@@ -4,7 +4,8 @@
   "info": {
     "singularName": "featured-product",
     "pluralName": "featured-products",
-    "displayName": "Featured Products"
+    "displayName": "Featured Products",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,6 +18,10 @@
     "products": {
       "type": "customField",
       "customField": "global::shopify-product-field"
+    },
+    "collection": {
+      "type": "customField",
+      "customField": "global::shopify-fields-plugin"
     }
   }
 }

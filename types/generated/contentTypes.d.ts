@@ -508,6 +508,7 @@ export interface ApiFeaturedProductFeaturedProduct
   extends Struct.CollectionTypeSchema {
   collectionName: 'featured_products';
   info: {
+    description: '';
     displayName: 'Featured Products';
     pluralName: 'featured-products';
     singularName: 'featured-product';
@@ -516,6 +517,8 @@ export interface ApiFeaturedProductFeaturedProduct
     draftAndPublish: true;
   };
   attributes: {
+    collection: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'global::shopify-fields-plugin'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
