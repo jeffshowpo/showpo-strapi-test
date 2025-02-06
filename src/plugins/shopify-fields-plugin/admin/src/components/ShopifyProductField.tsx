@@ -15,13 +15,14 @@ import {
   Modal,
   Typography,
 } from '@strapi/design-system';
-import { ChevronLeft, ChevronRight, Search } from '@strapi/icons';
+
+import { ChevronLeft, ChevronRight, Search, Trash } from '@strapi/icons';
 import axios from 'axios';
 import * as React from 'react';
 import { PLUGIN_ID } from '../pluginId';
 import { ShopifyCollection, ShopifyProduct, ShopifyProductData } from './types';
 
-import { TextInput } from '@strapi/design-system';
+import { CardAction, IconButton, TextInput } from '@strapi/design-system';
 import { useSpinDelay } from 'spin-delay';
 
 type Product = {
@@ -51,6 +52,12 @@ export const ShopifyProductField = React.forwardRef<any, any>((props, ref) => {
 
   const [selectedProducts, setSelectedProducts] = React.useState<Array<Product>>(value);
 
+  const handleDelete = (productId: string) => {
+    const updatedProducts = selectedProducts.filter((p) => p.id !== productId);
+    setSelectedProducts(updatedProducts);
+    onChange({ target: { name, type: attribute.type, value: updatedProducts } });
+  };
+
   return (
     <Field.Root
       name={name}
@@ -72,7 +79,7 @@ export const ShopifyProductField = React.forwardRef<any, any>((props, ref) => {
         >
           {value?.map((product: Product) => (
             <li key={product.id}>
-              <Card style={{ display: 'flex', alignItems: 'start' }}>
+              <Card style={{ display: 'flex', alignItems: 'start', position: 'relative' }}>
                 <Box padding={2} width={50} style={{ flexShrink: '0' }}>
                   <img
                     src={product.imageUrl}
@@ -82,6 +89,18 @@ export const ShopifyProductField = React.forwardRef<any, any>((props, ref) => {
                     style={{ objectFit: 'contain', objectPosition: 'top' }}
                   />
                 </Box>
+                <CardAction
+                  position="end"
+                  style={{ position: 'absolute', top: '8px', right: '8px' }}
+                >
+                  <IconButton
+                    withTooltip={false}
+                    disabled={disabled}
+                    onClick={() => handleDelete(product.id)}
+                  >
+                    <Trash />
+                  </IconButton>
+                </CardAction>
                 <CardBody>
                   <CardContent>
                     <CardTitle>{product.title}</CardTitle>
@@ -265,7 +284,7 @@ function ProductGrid(props: any) {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
             startAction={<Search />}
           />
-          {debouncedQuery && !productsData?.nodes.length ? (
+          {debouncedQuery && !productsData?.nodes?.length ? (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Typography>No products found for "{debouncedQuery}"</Typography>
             </div>
@@ -309,14 +328,14 @@ function ProductGrid(props: any) {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
+                justifyContent: 'end',
                 gap: '12px',
               }}
             >
-              <Button
-                variant="tertiary"
+              <IconButton
+                aria-label="Previous"
+                withTooltip={false}
                 disabled={!productsData?.pageInfo.hasPreviousPage}
-                startIcon={<ChevronLeft />}
                 onClick={() =>
                   setPageParams({
                     dir: 'backward',
@@ -325,12 +344,12 @@ function ProductGrid(props: any) {
                   })
                 }
               >
-                Previous
-              </Button>
-              <Button
-                variant="tertiary"
+                <ChevronLeft />
+              </IconButton>
+              <IconButton
+                aria-label="Next"
+                withTooltip={false}
                 disabled={!productsData?.pageInfo.hasNextPage}
-                endIcon={<ChevronRight />}
                 onClick={() =>
                   setPageParams({
                     dir: 'forward',
@@ -339,8 +358,8 @@ function ProductGrid(props: any) {
                   })
                 }
               >
-                Next
-              </Button>
+                <ChevronRight />
+              </IconButton>
             </div>
           ) : null}
         </div>
